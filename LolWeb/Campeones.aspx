@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LolWeb.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Campeones.aspx.cs" Inherits="LolWeb.Campeones" %>
 
 <!DOCTYPE html>
 
@@ -25,8 +25,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Campeones.aspx">Campeones</a>
                         </li>
-                      
-                        
+
+
                     </ul>
                 </div>
             </div>
@@ -35,29 +35,30 @@
 
     <form id="form1" runat="server">
         <main class="container-fluid mt-5">
-              <div class="row">
-                  <div class="col-12 col-md-6 col-lg-4">
-                      <div class="card">
-                          <div class="card-header bg-primary text-white">
-                              <h5>Nuestro Objetivo</h5>
-                          </div>
-                          <div class="card-body">
-                              <p> bla bla bla blas bla </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col col-md col-lg">
-                      <div class="card mt-2 mt-md-0">
-                          <div class="card-header bg-light">
-                              <h5>Campeon del mes</h5>
-                          </div>
-                          <div class="card-body">
-                              <img src="img/eren.png" class="img-fluid"/>
-                          </div>
-                      </div>
-                  </div>
-                  </div>
-              </div>
+            <div class="row">
+                <%String[] campeones = { "Eren", "Mikasa", "Armin" };
+                    String[] imagenes = { "img/eren.png",
+                        "https://www.tonica.la/__export/1620830184950/sites/debate/img/2021/05/12/mikasa-ackerman-se-quedx-con-jean_1.jpg_1037907269.jpg",
+                        "https://lanetaneta.com/wp-content/uploads/2020/08/Attack-On-Titan-revela-el-nuevo-deseo-de-Armin-para.jpeg" };
+                    for (int i = 0; i < campeones.Length; ++i)
+                    {
+
+
+                %>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header bg-dark bg-gradient text-white">
+                            <h5><%=campeones[i] %></h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="<%=imagenes[i] %>" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+                <%
+                    }
+                %>
+            </div>
         </main>
     </form>
     <footer class="bg-dark fixed-bottom pt-2 pb-2 d-none d-lg-block">
@@ -66,9 +67,10 @@
                 <h5>Ante cualquier cosa contactar a <a href="#">niñorata@gmail.com</a></h5>
             </div>
         </div>
-        
+
     </footer>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+
